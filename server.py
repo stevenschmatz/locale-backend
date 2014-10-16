@@ -37,7 +37,7 @@ class iPhoneChat(Protocol):
     			# Send message to all clients
                 for client in self.factory.clients:
                     if client != self:
-                        client.message(msg)
+                        client.message("hello")
 
     def message(self, msg):
     # EFFECTS:	Sends a message to a the client.
@@ -47,6 +47,6 @@ factory = Factory()
 factory.protocol = iPhoneChat
 factory.clients = []
 
-reactor.listenTCP(8081, factory)
+reactor.listenTCP(8082, factory)
 print "iPhone chat server started!"
 reactor.run()
